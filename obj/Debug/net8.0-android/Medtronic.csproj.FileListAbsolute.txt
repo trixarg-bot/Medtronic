@@ -1069,3 +1069,4 @@ C:\Users\liria\OneDrive\Escritorio\Eduardo\maui_APP\Medtronic\obj\Debug\net8.0-a
 C:\Users\liria\OneDrive\Escritorio\Eduardo\maui_APP\Medtronic\obj\Debug\net8.0-android\lp\158\jl\files.cache
 C:\Users\liria\OneDrive\Escritorio\Eduardo\maui_APP\Medtronic\obj\Debug\net8.0-android\lp\159\jl\files.cache
 C:\Users\liria\OneDrive\Escritorio\Eduardo\maui_APP\Medtronic\obj\Debug\net8.0-android\lp\160\jl\files.cache
+C:\Users\liria\OneDrive\Escritorio\Eduardo\maui_APP\Medtronic\obj\Debug\net8.0-android\Medtronic.sourcelink.json
