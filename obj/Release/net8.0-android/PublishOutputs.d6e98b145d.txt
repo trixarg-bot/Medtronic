@@ -1,0 +1,3 @@
+C:\Users\liria\OneDrive\Escritorio\Eduardo\maui_APP\Medtronic\bin\Release\net8.0-android\publish\com.companyname.medtronic-Signed.apk
+C:\Users\liria\OneDrive\Escritorio\Eduardo\maui_APP\Medtronic\bin\Release\net8.0-android\publish\com.companyname.medtronic.apk
+C:\Users\liria\OneDrive\Escritorio\Eduardo\maui_APP\Medtronic\bin\Release\net8.0-android\publish\_Microsoft.Android.Resource.Designer.dll

@@ -1,0 +1,185 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Medtronic.MainPage"
+             BackgroundColor="#FFFFFF">
+
+<ScrollView>
+        <VerticalStackLayout Spacing="5" Padding="30,0" VerticalOptions="Center">
+
+            <Image Source="logo.jpg" />
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Entry x:Name="PartNumberEntry" Placeholder="SCAN PART NUMBER" Grid.Row="1" ClearButtonVisibility="WhileEditing" Unfocused="OnPartNumberEntryUnfocused" />
+                <Label Text="" TextColor="gray" FontSize="12" Grid.Row="0" >
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label"
+                                     Binding="{Binding Source={x:Reference PartNumberEntry}, Path=Text, Converter={StaticResource StringToBoolConverter}}"
+                                     Value="True">
+                            <Setter Property="Text" Value="PART NUMBER"/>
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </Grid>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Entry x:Name="BatchNumberEntry" Placeholder="SCAN BATCH NUMBER" Grid.Row="1" ClearButtonVisibility="WhileEditing" Unfocused="OnBatchNumberEntryUnFocused"/>
+                <Label Text="" TextColor="Gray" FontSize="12" Grid.Row="0">
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label"
+                                     Binding="{Binding Source={x:Reference BatchNumberEntry}, Path=Text, Converter={StaticResource StringToBoolConverter}}"
+                                     Value="True">
+                            <Setter Property="Text" Value="BATCH NUMBER"/>
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+            </Grid>
+
+            <Grid ColumnDefinitions="*, *" ColumnSpacing="15">
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Entry x:Name="QuantityEntry" Placeholder="QUANTITY" Grid.Row="1" Keyboard="Numeric" ClearButtonVisibility="WhileEditing"/>
+                    <Label Text="" TextColor="Gray" FontSize="12" Grid.Row="0">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label"
+                                         Binding="{Binding Source={x:Reference QuantityEntry}, Path=Text, Converter={StaticResource StringToBoolConverter}}"
+                                         Value="True">
+                                <Setter Property="Text" Value="QUANTITY"/>
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Entry x:Name="InitialsEntry" Placeholder="INITIALS" Grid.Row="1" ClearButtonVisibility="WhileEditing"/>
+                    <Label Text="" TextColor="Gray" FontSize="12" Grid.Row="0">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label"
+                                         Binding="{Binding Source={x:Reference InitialsEntry}, Path=Text, Converter={StaticResource StringToBoolConverter}}"
+                                         Value="True">
+                                <Setter Property="Text" Value="INITIALS"/>
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                </Grid>
+            </Grid>
+
+            <Grid ColumnDefinitions="*, *" ColumnSpacing="15">
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Entry x:Name="LabelsQuantityEntry" Placeholder="LABELS QUANTITY" Text="1" Grid.Row="1" Keyboard="Numeric" ClearButtonVisibility="WhileEditing"/>
+                    <Label Text="" TextColor="Gray" FontSize="12" Grid.Row="0" IsVisible="False">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label"
+                                         Binding="{Binding Source={x:Reference LabelsQuantityEntry}, Path=Text, Converter={StaticResource StringToBoolConverter}}"
+                                         Value="True">
+                                <Setter Property="Text" Value="LABELS QUANTITY"/>
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                </Grid>
+                <Button Text="PRINT" BackgroundColor="#4CAF50" TextColor="White" Grid.Column="1" Clicked="OnPrintButtonClicked" />
+            </Grid>
+
+            <Button Text="CLEAR DATA" BackgroundColor="#00CED1" TextColor="White" Clicked="OnClickedClearData"/>
+
+            <Frame BackgroundColor="#D3D3D3" Padding="10" CornerRadius="5">
+               <Picker x:Name="BluetoothDevicesPicker" Title="PRINTERS " />
+            </Frame>
+
+            <Label Text="Version 24.07.16 - GAD Intermec - 2024" FontSize="Small" HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+
+<!-- <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Medtronic.MainPage"
+             BackgroundColor="#FFFFFF">
+
+    <ContentPage.Resources>
+        <Style x:Key="FloatingLabelEntry"
+                TargetType="Entry">
+            <Setter Property="PlaceholderColor"
+                    Value="Transparent"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="25"
+                Padding="30,0"
+                VerticalOptions="Center">
+
+            <Image Source="logo.jpg"/>
+
+            <Grid>
+                <Entry Placeholder="SCAN PART NUMBER"
+                        Style="{StaticResource FloatingLabelEntry}"/>
+                <Label Text="SCAN PART NUMBER"
+                        TextColor="Gray"
+                        FontSize="12"
+                       TranslationY="-20"
+                       IsVisible="{Binding Source={x:Reference PartNumberEntry}, Path=Text.Length, Converter={StaticResource StringToBoolConverter}}"/>
+            </Grid>
+
+            <Entry Placeholder="SCAN BATCH NUMBER"/>
+
+            <Grid ColumnDefinitions="*, *"
+                    ColumnSpacing="15">
+                <Entry Placeholder="QUANTITY"
+                        Grid.Column="0"
+                        Keyboard="Numeric"/>
+                <Entry Placeholder="INITIALS"
+                        Grid.Column="1"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="*, *"
+                    ColumnSpacing="15">
+                <Entry Placeholder="LABELS QUANTITY"
+                        Text="1"
+                        Grid.Column="0"
+                        Keyboard="Numeric"/>
+                <Button Text="PRINT"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        Grid.Column="1"
+                        Clicked="OnPrintButtonClicked"/>
+            </Grid>
+
+            <Button Text="CLEAR DATA"
+                    BackgroundColor="#00CED1"
+                    TextColor="White"/>
+
+            <Frame BackgroundColor="#D3D3D3"
+                    Padding="10"
+                    CornerRadius="5">
+                <Label Text="PRINTERS"
+                        HorizontalOptions="Center"/>
+            </Frame>
+
+            <Label Text="Version 24.07.15 - GAD Intermec - 2024"
+                    FontSize="Small"
+                    HorizontalOptions="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage> -->
